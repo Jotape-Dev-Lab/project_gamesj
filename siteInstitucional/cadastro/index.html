@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
     <link rel="stylesheet" href="../src/css/styleCadastro.css">
+    <script type="text/javascript" src="../src/script/scriptCadastro.js"></script>
 </head>
 
 <body>
@@ -19,25 +20,25 @@
 
             <div class="space-cad"> 
 
-                <form class="form-cad">
+                <form class="form-cad" id="event"> 
 
                     <h1> Cadastre-se Já! </h1>
 
                     <div class="inputs">
 
-                    <input type="text" class="input-cad" placeholder="Nome de Usuário">
+                    <input type="text" id="input_user" class="input-cad" placeholder="Nome de Usuário">
 
-                    <input type="text" class="input-cad" placeholder="Email">
+                    <input type="text" id="input_email" class="input-cad" placeholder="Email">
 
-                    <input type="password" class="input-cad" placeholder="Senha">
+                    <input type="password" id="input_senha" class="input-cad" placeholder="Senha">
 
-                    <input type="password" class="input-cad" placeholder="Confirmar senha">
+                    <input type="password" id="input_confirmar_senha" class="input-cad" placeholder="Confirmar senha">
 
                     </div>  
 
                     <div class="btns">
 
-                    <button class="btn-cad"> Cadastrar </button>
+                    <button class="btn-cad" type="submit" onclick="validarCadastro()"> Cadastrar </button>
 
                     </div>  
 

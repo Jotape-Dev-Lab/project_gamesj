@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Capriola&family=Quicksand:wght@500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --rosaNeon: #BF307F;
+    --rosaNeonOpc: #bf307f61;
+    --rosaEscuro: #731F4D;
+    --roxo: #151226;
+    --azulEscuro: #024873;
+    --azulClaro: #0388A6;
+    --branco: #FFFFFF;
+    --brancoCinza: #f2f2f2;
+    --cinza: #b2b2b2;
+}
+
+html {
+    font-family: "Capriola", sans-serif;
+    font-style: normal;
+}
+
+header {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    background-color: var(--rosaNeonOpc);
+    width: 100%;
+    z-index: 99;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 1.4rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.login {
+    display: flex;
+    gap: 1rem;
+}
+
+.input-log {
+    padding: 12px;
+    border: solid 1px var(--cinza);
+    border-radius: 4px;
+    outline: none;
+    font-size: 16px;
+}
+
+.input-log:focus {
+    border: solid 1px var(--azulClaro);
+}
+
+.btn-log {
+    padding: 10px;
+    width: 100%;
+    border-radius: 4px;
+    background-color: var(--azulClaro);
+    border: none;
+    outline: none;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--branco);
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.btn-log:hover {
+    background-color: var(--azulEscuro);
+}
+
+
+.icon {
+    background-image: url(../icon/brancoDeitado.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 260px;
+    height: 70px;
+    transition: 0.5s;
+}
+
+.icon:hover {
+    transform: scale(1.05);
+}
+
+section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../img/gifLogin.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.container {
+    width: 1140px;
+}
+
+
