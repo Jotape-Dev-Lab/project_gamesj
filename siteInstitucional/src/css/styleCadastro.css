@@ -107,6 +107,7 @@ section {
     font-weight: 700;
     color: var(--branco);
     transition: all 0.5s;
+    cursor: pointer;
 }
 
 .btn-cad:hover {
