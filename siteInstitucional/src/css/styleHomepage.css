@@ -24,7 +24,7 @@ html {
 }
 
 .container {
-    width: 1140px;
+    width: 1040px;
 }
 
 header {
@@ -32,6 +32,9 @@ header {
     padding: 1rem;
     align-items: center;
     justify-content: center;
+    position: relative;
+    z-index: 99;
+    width: 100%;
 }
 
 .nav-header{
@@ -119,16 +122,22 @@ li:hover {
     background-color: var(--azulEscuro);
 }
 
-hr {
+.linha {
     width: 100%;
+    position: absolute;
+    z-index: 999;
+}
+
+.linha hr {
     border: 2px solid var(--roxo);
 }
 
 .banner {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 800px;
+    height: 90vh;
 }
 
 .banner-cont {
@@ -160,8 +169,8 @@ hr {
 }
 
 .banner-figure-img {
-    width: 500px;
-    height: 500px;
+    width: 425px;
+    height: 425px;
     border-radius: 100%;
     box-shadow: 0px 0px 12px 1px rgba(159, 159, 191, 1);
     background-image: url("../img/gamesBannerGames.jpg");
@@ -173,14 +182,14 @@ hr {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 800px;
+    height: 100vh;
     background-color: var(--rosaNeon);
 }
 
 .sobremim-itens {
     display: flex;
     flex-direction: column;
-    gap: 10rem;
+    justify-content: space-between;
 }
 
 .sobremim-cont {
@@ -190,11 +199,17 @@ hr {
 }
 
 .sobremim-tittle-h1 {
+    position: relative;
+    z-index: 99;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     color: var(--branco);
-    font-size: 80px;
+    height: 50%;
+}
+
+.sobremim-tittle-h1 h1 {
+    font-size: 50px;
 }
 
 .sobremim-grid {
@@ -202,7 +217,7 @@ hr {
     display: grid;
     grid-template-columns: auto auto;
     justify-content: center;
-    gap: 5rem;
+    gap: 4rem;
 }
 
 .card{
@@ -210,24 +225,23 @@ hr {
     padding: 1.5rem;
     box-shadow: 0px 0px 12px 1px rgba(46, 1, 46, 0.469);
     border-radius: 4px;
-    width: 600px;
-    height: 400px;
     background-color: var(--branco);
+    margin-top: 7rem;
 }
 
 .card-round {
     position: absolute;
     width: 155px;
     height: 155px;
+    bottom: 80%;
+    left: 36%;
     border-radius: 100%;
     background-color: var(--branco);
-    bottom: 90%;
-    left: 36%;
     box-shadow: 0px 0px 12px 1px rgba(46, 1, 46, 0.469);
 }
 
 .p-card{
-    margin-top: 40px;
+    margin-top: 5rem;
     font-size: 20px;
     text-align: justify;
 }
@@ -240,12 +254,69 @@ hr {
     color: var(--azulClaro);
 }
 
-.banner-figure-reverse{
-    width: 500px;
-    height: 500px;
+.banner-figure-img-reverse{
+    width: 425px;
+    height: 425px;
     border-radius: 100%;
     box-shadow: 0px 0px 12px 1px rgba(159, 159, 191, 1);
-    background-image: url("../img/ideia.jpg");
+    background-image: url("../img/ideia2.png");
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+.emocao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--azulClaro);
+}
+
+.emocao-itens {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    padding: 2.5rem;
+}
+
+.emocao-title {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    color: var(--branco);
+}
+
+.emocao-title h1{
+    font-size: 50px;
+}
+
+.conhecamais {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150vh;
+}
+
+.conheca-mais-itens {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    padding: 2.5rem;
+}
+
+.conheca-mais-title {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    color: var(--roxo);
+}
+
+.conheca-mais-title h1{
+    font-size: 50px;
 }
