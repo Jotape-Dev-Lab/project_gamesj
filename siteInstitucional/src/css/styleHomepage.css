@@ -24,7 +24,7 @@ html {
 }
 
 .container {
-    width: 1340px;
+    width: 1140px;
 }
 
 header {
@@ -145,7 +145,7 @@ hr {
 }
 
 .banner-title-h1 {
-    font-size: 80px;
+    font-size: 50px;
     color: var(--roxo);
 }
 
@@ -160,8 +160,8 @@ hr {
 }
 
 .banner-figure-img {
-    width: 600px;
-    height: 600px;
+    width: 500px;
+    height: 500px;
     border-radius: 100%;
     box-shadow: 0px 0px 12px 1px rgba(159, 159, 191, 1);
     background-image: url("../img/gamesBannerGames.jpg");
@@ -232,3 +232,20 @@ hr {
     text-align: justify;
 }
 
+#banner-reverse {
+    flex-direction: row-reverse;
+}
+
+#color-banner-reverse {
+    color: var(--azulClaro);
+}
+
+.banner-figure-reverse{
+    width: 500px;
+    height: 500px;
+    border-radius: 100%;
+    box-shadow: 0px 0px 12px 1px rgba(159, 159, 191, 1);
+    background-image: url("../img/ideia.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
