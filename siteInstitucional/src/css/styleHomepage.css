@@ -226,7 +226,7 @@ li:hover {
     box-shadow: 0px 0px 12px 1px rgba(46, 1, 46, 0.469);
     border-radius: 4px;
     background-color: var(--branco);
-    margin-top: 7rem;
+    margin-top: 6.5rem;
 }
 
 .card-round {
@@ -297,17 +297,21 @@ li:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 150vh;
+    height: 100vh;
+}
+
+.conhecamais .container {
+    width: 1100px;
 }
 
 .conheca-mais-itens {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
-    height: 100vh;
+    height: 90vh;
     width: 100%;
-    padding: 2.5rem;
+    gap: 2rem;
 }
 
 .conheca-mais-title {
@@ -319,4 +323,85 @@ li:hover {
 
 .conheca-mais-title h1{
     font-size: 50px;
+}
+
+.grids {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    gap: 3rem;
+    justify-content: center;
+}
+
+.port-jogos-grid1 {
+    display: grid;
+    grid-template-columns: 400px;
+    gap: 2rem;
+}
+
+.port-jogos-grid2 {
+    display: grid;
+    grid-template-columns: 650px;
+    gap: 2rem;
+}
+
+.img-vertical{
+    width: 100%;
+}
+
+.img-hori {
+    width: 100%;
+}
+
+.img-hori-double {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    width: 100%;
+}
+
+.port-card {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: var(--roxo);
+    box-shadow: 0px 0px 12px 1px rgba(159, 159, 191, 1);
+    border-radius: 12px;
+    transition: all 0.5s ease-out;
+    cursor: pointer;
+}
+
+.port-card:hover {
+    transform: scale(1.05);
+}
+
+.img-minecraft {
+    background-image: url(../img/minecraft.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.img-valorant {
+    background-image: url(../img/vava.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.img-brawl {
+    background-image: url(../img/brawlhalla.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.img-pokemon {
+    background-image: url(../img/pokemon.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.img-rocket {
+    background-image: url(../img/rocketleague.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
