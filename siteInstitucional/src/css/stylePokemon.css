@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --rosaNeon: #BF307F;
+    --rosaNeonOpc: #bf307f61;
+    --rosaEscuro: #731F4D;
+    --roxo: #151226;
+    --azulEscuro: #024873;
+    --azulClaro: #0388A6;
+    --branco: #FFFFFF;
+    --brancoCinza: #f2f2f2;
+    --cinza: #b2b2b2;
+}
+
+html {
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.container {
+    width: 1040px;
+}
+
+header {
+    display: flex;
+    padding: 1rem;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 99;
+    width: 100%;
+    background-color: var(--branco);
+    box-shadow: 0px 0px 12px 1px rgba(159, 159, 191, 1);
+}
+
+.nav-header{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.img-header {
+    background-image: url(../icon/azulClaro.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 85px;
+    height: 85px;
+    transition: all 0.2s ease-in;
+    cursor: pointer;
+}
+
+.img-header:hover {
+    transform: scale(1.05);
+}
+
+.list-bar {
+    display: flex;
+    text-decoration: none;
+    list-style: none;
+    gap: 5rem;
+}
+
+.itens-header {
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+    align-items: center;
+}
+
+a {
+    color: var(--roxo);
+    font-size: 1.5rem;
+}
+
+a:hover {
+    color: var(--rosaEscuro);
+}
+
+li{
+    transition: all 0.2s ease-in;
+}
+
+li:hover {
+    transform: scale(1.05);
+}
+
+.btn-bar {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-bar button {
+    padding: 10px;
+    width: 100%;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--branco);
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.btn-rosa{
+    background-color: var(--rosaNeon);
+}
+
+.btn-rosa:hover{
+    background-color: var(--rosaEscuro);
+}
+
+.btn-azul{
+    background-color: var(--azulClaro);
+}
+
+.btn-azul:hover{
+    background-color: var(--azulEscuro);
+}
+/* 
+.linha {
+    width: 100%;
+    position: absolute;
+    z-index: 999;
+}
+
+.linha hr {
+    border: 2px solid var(--roxo);
+} */
+
+.banner {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    background-image: url("../img/pokemonWall.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.banner-cont {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
