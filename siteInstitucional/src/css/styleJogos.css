@@ -1,0 +1,350 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --rosaNeon: #BF307F;
+    --rosaNeonOpc: #bf307f61;
+    --rosaEscuro: #731F4D;
+    --roxo: #151226;
+    --azulEscuro: #024873;
+    --azulClaro: #0388A6;
+    --branco: #FFFFFF;
+    --brancoCinza: #f2f2f2;
+    --cinza: #b2b2b2;
+    --roxoClaroShadow: rgba(159, 159, 191, 1);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: var(--transparente);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--roxo);
+}
+
+
+html {
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.container {
+    width: 1040px;
+}
+
+header {
+    display: flex;
+    padding: 1rem;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 99;
+    width: 100%;
+    background-color: var(--branco);
+    box-shadow: 0px 0px 12px 1px var(--roxoClaroShadow);
+}
+
+.nav-header{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.img-header {
+    background-image: url(../icon/azulClaro.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 85px;
+    height: 85px;
+    transition: all 0.2s ease-in;
+    cursor: pointer;
+}
+
+.img-header:hover {
+    transform: scale(1.05);
+}
+
+.list-bar {
+    display: flex;
+    text-decoration: none;
+    list-style: none;
+    gap: 5rem;
+}
+
+.itens-header {
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+    align-items: center;
+}
+
+.itens-header a {
+    color: var(--roxo);
+    font-size: 1.5rem;
+}
+
+.itens-header a:hover {
+    color: var(--rosaEscuro);
+}
+
+li{
+    transition: all 0.2s ease-in;
+}
+
+li:hover {
+    transform: scale(1.05);
+}
+
+.btn-bar {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-bar button {
+    padding: 10px;
+    width: 100%;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--branco);
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.btn-rosa{
+    background-color: var(--rosaNeon);
+}
+
+.btn-rosa:hover{
+    background-color: var(--rosaEscuro);
+}
+
+.btn-azul{
+    background-color: var(--azulClaro);
+}
+
+.btn-azul:hover{
+    background-color: var(--azulEscuro);
+}
+
+.banner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    background-image: url("../img/pokemon-banner.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.banner-cont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.banner-cont h1 {
+    font-size: 50px;
+    color: var(--branco);
+    text-shadow: 3px 0px 3px var(--roxo);
+}
+
+.fotos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.box-slide {
+    display: flex;
+    width: 100%;
+    height: 85vh;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 12px 1px var(--roxoClaroShadow);
+    border-radius: 12px;
+    position: relative;
+}
+
+.box-slide .slide {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+}
+
+.box-slide .slide .item {
+    display: flex;
+    width: 200px;
+    height: 300px;
+    position: absolute;
+    border-radius: 12px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 13%;
+    box-shadow: 0px 0px 6px 1px #35343fb3;
+    transition: 0.5s;
+}
+
+.slide .item:nth-child(1), .slide .item:nth-child(2) {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translate(0, 0);
+}
+
+.slide .item:nth-child(3) {
+    left: 50%;
+}
+
+.slide .item:nth-child(4) {
+    left: calc(50% + 220px);
+}
+
+.slide .item:nth-child(n+5) {
+    left: calc(50% + 440px);
+}
+
+
+
+
+.item .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 55px;
+    gap: 0.5rem;
+    width: 100%;
+    height: 100%;
+    display: none;
+    color: var(--branco);
+    text-shadow: 3px 0px 3px var(--roxo);
+}
+
+.slide .item:nth-child(2) .content {
+    display: flex;
+}
+
+.item .content .title {
+    font-size: 40px;
+    font-weight: bold;
+    text-transform: uppercase;
+    animation: animacao-subida 0.63s ease-in-out 1 forwards;
+}
+
+.item .content .desc {
+    font-size: 16px;
+    animation: animacao-subida 0.63s ease-in-out 1 forwards;
+}
+
+@keyframes animacao-subida {
+    from {
+        opacity: 0;
+        transform: translate(0, 100px);
+        filter: blur(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0);
+        filter: blur(0);
+    }
+}
+
+.slide-btn {
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    bottom: 20px;
+}
+
+.slide-btn button {
+    padding: 7px 8px;
+    text-align: center;
+    border-radius: 100%;
+    border: none;
+    cursor: pointer;
+    background-color: var(--roxo);
+    color: var(--branco);
+    transition: 0.3s ease-out;
+    box-shadow: 0px 0px 12px 1px var(--roxoClaroShadow);
+}
+
+.slide-btn button:hover {
+    background-color: var(--rosaEscuro);
+}
+
+.slide-btn button:active {
+    background-color: var(--rosaNeon);
+}
+
+.infos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.grid-infos {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    grid-auto-rows: auto;
+    width: 100%;
+    height: 100%;
+    gap: 1rem;
+}
+
+.grid-infos .box-img {
+    width: 100%;
+    height: 90vh;
+}
+
+.logon {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 0px 0px 12px 1px var(--roxoClaroShadow);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 12px;
+}
+
+.grid-infos .box-info {
+    width: 100%;
+    height: 90vh;
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    gap: 1rem;
+}
+
+.box-info .tema {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0px 0px 12px 1px var(--roxoClaroShadow);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.box-info .info-text {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0px 0px 12px 1px var(--roxoClaroShadow);
+}
