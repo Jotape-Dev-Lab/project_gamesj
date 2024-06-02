@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fórum</title>
+    <link rel="stylesheet" href="css/styleForum.css" />
+    <script type="ja" src=""></script>
+    <script
+      src="https://kit.fontawesome.com/bdbe817282.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav class="nav-header">
+          <a href="index.html"><figure class="img-header"></figure></a>
+
+          <section class="itens-header">
+            <nav class="nav-bar">
+              <ul class="list-bar">
+                <li><a href="index.html#sobremim">Sobre mim</a></li>
+                <li><a href="index.html#jogos">Jogos</a></li>
+                <li><a href="indexForum.html">Fórum</a></li>
+              </ul>
+            </nav>
+
+            <section class="btn-bar">
+              <a href="indexCadastro.html"
+                ><button class="btn-azul">Cadastrar</button></a
+              >
+              <a href="indexLogin.html"
+                ><button class="btn-rosa">Login</button></a
+              >
+            </section>
+          </section>
+        </nav>
+      </div>
+    </header>
+
+    <div class="linha">
+      <hr />
+    </div>
+
+    <section class="forum">
+      <div class="container">
+        <div class="forum-content">
+          <div class="forum-left">
+            <div class="forum-info"></div>
+          </div>
+
+          <div class="forum-right">
+            <div class="forum-publicar">
+              <h1>Participe!</h1>
+
+              <div class="comentarios">
+                <div class="icon">X</div>
+
+                <div class="forum-publicacao">
+                  <select name="select_tema" id="select_tema">
+                    <option selected disabled value="#">
+                      Selecione o tema
+                    </option>
+                    <option value="mine">Minecraft</option>
+                    <option value="rock">Rocket League</option>
+                    <option value="braw">Brawlhalla</option>
+                    <option value="vava">Valorant</option>
+                    <option value="poke">Pokémon</option>
+                  </select>
+
+                  <textarea maxlength="250" type="text" placeholder="Digite seu comentário aqui"></textarea>
+
+                  <div class="btn-publicar">
+                    <div class="avaliacao">
+                      <i class="fa-regular fa-star star-empty" data-index="1"></i>
+                      <i class="fa-regular fa-star star-empty" data-index="2"></i>
+                      <i class="fa-regular fa-star star-empty" data-index="3"></i>
+                      <i class="fa-regular fa-star star-empty" data-index="4"></i>
+                      <i class="fa-regular fa-star star-empty" data-index="5"></i>
+                    </div>
+                    <button>Publicar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="forum-enviados">
+              <div class="enviado">
+                <div class="user">
+                  <div class="icon">X</div>
+
+                  <div class="name">João</div>
+                </div>
+
+                <div class="content">
+                  <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Beatae voluptate alias odit, est sint dolor quod neque
+                    architecto, praesentium consequuntur reprehenderit id libero
+                    non eaque similique vero consectetur quae. Ratione.
+                  </p>
+                </div>
+
+                <div class="avaliacao">
+                  <i class="fa-solid fa-star star-yellow"></i>
+                  <i class="fa-solid fa-star star-yellow"></i>
+                  <i class="fa-solid fa-star star-yellow"></i>
+                  <i class="fa-regular fa-star star-empty"></i>
+                  <i class="fa-regular fa-star star-empty"></i>
+                </div>
+
+                <hr />
+              </div>
+
+              <div class="enviado">
+                <div class="user">
+                  <div class="icon">X</div>
+
+                  <div class="name">Marcos</div>
+                </div>
+
+                <div class="content">
+                  <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Beatae voluptate alias odit, est sint dolor quod neque
+                    architecto, praesentium consequuntur reprehenderit id libero
+                    non eaque similique vero consectetur quae. Ratione.
+                  </p>
+                </div>
+
+                <div class="avaliacao">
+                  <i class="fa-solid fa-star star-yellow"></i>
+                  <i class="fa-solid fa-star star-yellow"></i>
+                  <i class="fa-regular fa-star star-empty"></i>
+                  <i class="fa-regular fa-star star-empty"></i>
+                  <i class="fa-regular fa-star star-empty"></i>
+                </div>
+
+                <hr />
+              </div>
+
+              <div class="enviado">
+                <div class="user">
+                  <div class="icon">X</div>
+
+                  <div class="name">Marcos</div>
+                </div>
+
+                <div class="content">
+                  <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Beatae voluptate alias odit, est sint dolor quod neque
+                    architecto, praesentium consequuntur reprehenderit id libero
+                    non eaque similique vero consectetur quae. Ratione.
+                  </p>
+                </div>
+
+                <div class="avaliacao">
+                  <i class="fa-solid fa-star star-yellow"></i>
+                  <i class="fa-solid fa-star star-yellow"></i>
+                  <i class="fa-regular fa-star star-empty"></i>
+                  <i class="fa-regular fa-star star-empty"></i>
+                  <i class="fa-regular fa-star star-empty"></i>
+                </div>
+
+                <hr />
+              </div>
+
+              <div class="enviado">
+                <div class="user">
+                  <div class="icon">X</div>
+
+                  <div class="name">Marcos</div>
+                </div>
+
+                <div class="content">
+                  <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Beatae voluptate alias odit, est sint dolor quod neque
+                    architecto, praesentium consequuntur reprehenderit id libero
+                    non eaque similique vero consectetur quae. Ratione.
+                  </p>
+                </div>
+
+                <div class="avaliacao">
+                  <i class="fa-solid fa-star star-yellow"></i>
+                  <i class="fa-solid fa-star star-yellow"></i>
+                  <i class="fa-regular fa-star star-empty"></i>
+                  <i class="fa-regular fa-star star-empty"></i>
+                  <i class="fa-regular fa-star star-empty"></i>
+                </div>
+
+                <hr />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script type="text/javascript" src="script/scriptForum.js"></script>
+</html>
