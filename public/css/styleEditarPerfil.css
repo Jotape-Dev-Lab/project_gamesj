@@ -50,7 +50,108 @@ html {
     background-color: var(--rosaNeon);
 }
 
+.menu-lateral hr {
+    border: solid 2px var(--branco);
+}
+
 .perfil {
     width: 80vw;
     height: 100vh;
+}
+
+.user {
+    padding: 1rem;
+    gap: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.user .img {
+    width: 70px;
+    height: 70px;
+    cursor: auto;
+}
+
+.user h1 {
+    color: var(--branco);
+}
+
+.lista {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.lista a{
+    width: 100%;
+    text-decoration: none;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+    padding: 1rem;
+    color: var(--branco);
+    width: 100%;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+li:hover {
+    background-color: var(--rosaEscuro);
+}
+
+li:active {
+    background-color: var(--roxo);
+}
+
+.escolha-foto {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.escolha-foto h1 {
+    color: var(--roxo);
+    font-size: 24px;
+}
+
+.fotos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+
+.img:hover {
+    transform: scale(1.05);
 }
