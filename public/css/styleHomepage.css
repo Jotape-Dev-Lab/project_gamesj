@@ -134,6 +134,42 @@ li:hover {
     background-color: var(--azulEscuro);
 }
 
+.user-a {
+    text-decoration: none;
+}
+
+.user-logon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2rem;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.user-logon:hover {
+    transform: scale(1.1);
+}
+
+.user-logon p {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--roxo);
+}
+
+.icon-perfil {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 80px;
+    height: 60px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 .linha {
     width: 100%;
     position: absolute;
