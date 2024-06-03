@@ -101,7 +101,6 @@ li:hover {
 }
 
 .btn-bar {
-    display: flex;
     gap: 1rem;
 }
 
@@ -139,7 +138,6 @@ li:hover {
 }
 
 .user-logon {
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;

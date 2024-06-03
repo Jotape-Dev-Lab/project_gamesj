@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styleLogin.css">
+    <script type="text/javascript" src="script/scriptLogin.js"></script>
     <title>Login</title>
 </head>
 
@@ -16,9 +17,9 @@
         <figure class="icon"></figure>
 
         <menu class="login">
-            <input maxlength="50" type="text" class="input-log" placeholder="Email">
-            <input maxlength="25" type="password" class="input-log" placeholder="Senha">
-            <button class="btn-log"> Entrar </button>
+            <input maxlength="50" type="text" class="input-log" placeholder="Email" id="email_input">
+            <input maxlength="25" type="password" class="input-log" placeholder="Senha" id="senha_input">
+            <button class="btn-log" onclick="entrar()"> Entrar </button>
         </menu>
 
         </nav>
