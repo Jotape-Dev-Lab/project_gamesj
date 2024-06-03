@@ -15,7 +15,7 @@
 
             <div class="user">
 
-                <div class="img" id="img_user"></div>
+                <div class="imgPerfil" id="img_user"></div>
                 <h1 id="nome_user"></h1>
 
             </div>
@@ -27,7 +27,7 @@
                 <ul>
                     <a href="index.html"><li>Página Inicial</li></a>
                     <a href="indexForum.html"><li>Fórum</li></a>
-                    <a href=""><li>Sair</li></a>
+                    <a href="index.html" onclick="limparSessao()"><li>Sair</li></a>
                 </ul>
 
             </div>
@@ -42,35 +42,35 @@
 
                 <div class="fotos">
 
-                    <div onclick="mudarFotoPerfil()" class="img" style="background-image: url(perfil/1.png);"></div>
-                    <div onclick="mudarFotoPerfil()" class="img" style="background-image: url(perfil/2.png);"></div>
-                    <div onclick="mudarFotoPerfil()" class="img" style="background-image: url(perfil/3.png);"></div>
-                    <div onclick="mudarFotoPerfil()" class="img" style="background-image: url(perfil/4.png);"></div>
-                    <div onclick="mudarFotoPerfil()" class="img" style="background-image: url(perfil/5.png);"></div>
+                    <div onclick="editarPerfil(1)" class="img" style="background-image: url(perfil/1.png);"></div>
+                    <div onclick="editarPerfil(2)" class="img" style="background-image: url(perfil/2.png);"></div>
+                    <div onclick="editarPerfil(3)" class="img" style="background-image: url(perfil/3.png);"></div>
+                    <div onclick="editarPerfil(4)" class="img" style="background-image: url(perfil/4.png);"></div>
+                    <div onclick="editarPerfil(5)" class="img" style="background-image: url(perfil/5.png);"></div>
 
-                    <div onclick="mudarFotoPerfil()" class="img" style="background-image: url(perfil/11.png);"></div>
-                    <div onclick="mudarFotoPerfil()" class="img" style="background-image: url(perfil/12.png);"></div>
-                    <div onclick="mudarFotoPerfil()" class="img" style="background-image: url(perfil/13.png);"></div>
-                    <div onclick="mudarFotoPerfil()" class="img" style="background-image: url(perfil/14.png);"></div>
-                    <div onclick="mudarFotoPerfil()" class="img" style="background-image: url(perfil/15.png);"></div>
+                    <div onclick="editarPerfil(11)" class="img" style="background-image: url(perfil/11.png);"></div>
+                    <div onclick="editarPerfil(12)" class="img" style="background-image: url(perfil/12.png);"></div>
+                    <div onclick="editarPerfil(13)" class="img" style="background-image: url(perfil/13.png);"></div>
+                    <div onclick="editarPerfil(14)" class="img" style="background-image: url(perfil/14.png);"></div>
+                    <div onclick="editarPerfil(15)" class="img" style="background-image: url(perfil/15.png);"></div>
 
-                    <div onclick="mudarFotoPerfil()" class="img" style="background-image: url(perfil/21.png);"></div>
-                    <div onclick="mudarFotoPerfil()" class="img" style="background-image: url(perfil/22.png);"></div>
-                    <div onclick="mudarFotoPerfil()" class="img" style="background-image: url(perfil/23.png);"></div>
-                    <div onclick="mudarFotoPerfil()" class="img" style="background-image: url(perfil/24.png);"></div>
-                    <div onclick="mudarFotoPerfil()" class="img" style="background-image: url(perfil/25.png);"></div>
+                    <div onclick="editarPerfil(21)" class="img" style="background-image: url(perfil/21.png);"></div>
+                    <div onclick="editarPerfil(22)" class="img" style="background-image: url(perfil/22.png);"></div>
+                    <div onclick="editarPerfil(23)" class="img" style="background-image: url(perfil/23.png);"></div>
+                    <div onclick="editarPerfil(24)" class="img" style="background-image: url(perfil/24.png);"></div>
+                    <div onclick="editarPerfil(25)" class="img" style="background-image: url(perfil/25.png);"></div>
 
-                    <div onclick="mudarFotoPerfil()" class="img" style="background-image: url(perfil/31.png);"></div>
-                    <div onclick="mudarFotoPerfil()" class="img" style="background-image: url(perfil/32.png);"></div>
-                    <div onclick="mudarFotoPerfil()" class="img" style="background-image: url(perfil/33.png);"></div>
-                    <div onclick="mudarFotoPerfil()" class="img" style="background-image: url(perfil/34.png);"></div>
-                    <div onclick="mudarFotoPerfil()" class="img" style="background-image: url(perfil/35.png);"></div>
+                    <div onclick="editarPerfil(31)" class="img" style="background-image: url(perfil/31.png);"></div>
+                    <div onclick="editarPerfil(32)" class="img" style="background-image: url(perfil/32.png);"></div>
+                    <div onclick="editarPerfil(33)" class="img" style="background-image: url(perfil/33.png);"></div>
+                    <div onclick="editarPerfil(34)" class="img" style="background-image: url(perfil/34.png);"></div>
+                    <div onclick="editarPerfil(35)" class="img" style="background-image: url(perfil/35.png);"></div>
 
-                    <div onclick="mudarFotoPerfil()" class="img" style="background-image: url(perfil/41.png);"></div>
-                    <div onclick="mudarFotoPerfil()" class="img" style="background-image: url(perfil/42.png);"></div>
-                    <div onclick="mudarFotoPerfil()" class="img" style="background-image: url(perfil/43.png);"></div>
-                    <div onclick="mudarFotoPerfil()" class="img" style="background-image: url(perfil/44.png);"></div>
-                    <div onclick="mudarFotoPerfil()" class="img" style="background-image: url(perfil/45.png);"></div>
+                    <div onclick="editarPerfil(41)" class="img" style="background-image: url(perfil/41.png);"></div>
+                    <div onclick="editarPerfil(42)" class="img" style="background-image: url(perfil/42.png);"></div>
+                    <div onclick="editarPerfil(43)" class="img" style="background-image: url(perfil/43.png);"></div>
+                    <div onclick="editarPerfil(44)" class="img" style="background-image: url(perfil/44.png);"></div>
+                    <div onclick="editarPerfil(45)" class="img" style="background-image: url(perfil/45.png);"></div>
 
                 </div>
 

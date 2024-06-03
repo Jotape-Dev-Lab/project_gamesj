@@ -44,6 +44,12 @@ nav {
     align-items: center;
 }
 
+.formulario {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
 .login {
     display: flex;
     gap: 1rem;

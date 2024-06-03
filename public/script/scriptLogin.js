@@ -1,4 +1,8 @@
+
 function entrar() {
+
+    event.preventDefault()
+    
     var emailVar = email_input.value;
     var senhaVar = senha_input.value;
 
@@ -37,8 +41,10 @@ function entrar() {
             resposta.json().then(json => {
                 console.log(json);
                 console.log(JSON.stringify(json));
-                sessionStorage.setItem('NOME_USER', json.nome);
-                sessionStorage.setItem('PERFIL_USER', json.fotoPerfil);
+                sessionStorage.NOME_USER = json.nome;
+                sessionStorage.PERFIL_USER = json.perfil;
+                sessionStorage.EMAIL_USER = json.email;
+                sessionStorage.ID_USER = json.idUsuario;
 
                 setTimeout(function() {
                     window.location = "/index.html";

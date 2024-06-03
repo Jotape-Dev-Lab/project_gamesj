@@ -6,7 +6,7 @@ function validarCadastro() {
     let email = input_email.value;
     let senha = input_senha.value;
     let confirmarSenha = input_confirmar_senha.value;
-    let fotoPerfil = "100";
+    let perfil = 100;
 
     let camposNaoPreenchidos = user == "" || email == "" || senha == "" || confirmarSenha == "";
 
@@ -66,7 +66,7 @@ function validarCadastro() {
                     userServer: user,
                     emailServer: email,
                     senhaServer: senha,
-                    perfilServer: fotoPerfil
+                    perfilServer: perfil
                     // empresaServer: empresaVar
                 }),
             })
@@ -101,6 +101,6 @@ function validarCadastro() {
     }
 }
 
-function sumirMensagem() {
-    cardErro.style.display = "none";
-}
+// function sumirMensagem() {
+//     cardErro.style.display = "none";
+// }

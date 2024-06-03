@@ -47,6 +47,7 @@ constraint ft_perf_user foreign key (fotoPerfil) references foto(idFoto)
 );
 
 select * from usuario;
+UPDATE usuario SET fotoPerfil = 13 WHERE idUsuario = 1;
 
 create table post (
 idPostagem int auto_increment,

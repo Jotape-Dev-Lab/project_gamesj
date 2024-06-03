@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
-    let nome = sessionStorage.getItem('nome');
-    let perfil = sessionStorage.getItem('perfil');
+    let nome = sessionStorage.getItem('NOME_USER');
+    let perfil = sessionStorage.getItem('PERFIL_USER');
 
     const btnSession = document.querySelector('.btn-bar');
     const userSession = document.querySelector('.user-logon');
 
     if (btnSession && userSession) {
-        if (nome === null && perfil === null) {
+        if (nome == undefined && perfil == undefined) {
             btnSession.style.display = 'flex';
             userSession.style.display = 'none';
         } else {
