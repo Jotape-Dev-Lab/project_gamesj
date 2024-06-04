@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function () {
     let nome = sessionStorage.getItem('NOME_USER');
     let perfil = sessionStorage.getItem('PERFIL_USER');
 
-
     const btnSession = document.querySelector('.btn-bar');
     const userSession = document.querySelector('.user-logon');
     const comentSession = document.querySelector('.forum-publicar');
@@ -55,7 +54,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         event.preventDefault();
 
-        // var idUsuario = sessionStorage.getItem('ID_USER');
         var idUsuario = sessionStorage.ID_USER;
 
         var corpo = {
@@ -121,6 +119,7 @@ document.addEventListener('DOMContentLoaded', function () {
     //     });
     // }
 
+let listaDeCores = ['#6E36FF', '#6FBD3B', '#FFA305', '#CC3412', '#FFDF03', '#E402FF', '#3739FF', '#2DFFB2', '#B2FFBC', '#C49DFF', '#3F8CFF'];
 
 function atualizarFeed() {
     fetch("/avisos/listar").then(function (resposta) {
@@ -135,8 +134,14 @@ function atualizarFeed() {
 
                 var feed = document.querySelector(".forum-enviados");
                 feed.innerHTML = "";
-                for (let i = 0; i < resposta.length; i++) {
+                for (
+                    let i = 0; 
+                    i < resposta.length; 
+                    i++
+                ) {
                     let publicacao = resposta[i]; 
+                    let numeroAleatorio = Math.floor(Math.random() * 11);
+                    let colorNome = listaDeCores[numeroAleatorio];
 
                     var nome = publicacao.nome; 
                     var postagem = publicacao.postagem;
@@ -164,7 +169,7 @@ function atualizarFeed() {
                    <div class="user">
                      <div class="icon" style="background-image: url(perfil/${perfilAtual}.png);"></div>
    
-                     <div class="name">${nome}</div>
+                     <div class="name" style="color: ${colorNome}; font-weight: 600">${nome}</div>
                    </div>
    
                    <div class="content">
@@ -202,19 +207,6 @@ function atualizarFeed() {
                 
                 div_comentarios.innerHTML += `<hr />
                 </div>`
-                //    <div class="avaliacao">
-                //      <i class="fa-regular fa-star star-empty"></i>
-                //      <i class="fa-regular fa-star star-empty"></i>
-                //      <i class="fa-regular fa-star star-empty"></i>
-                //      <i class="fa-regular fa-star star-empty"></i>
-                //      <i class="fa-regular fa-star star-empty"></i>
-                //    </div>
-   
-                //    <hr />
-                //  </div>
-                   
-
-                
 
                 }
 
@@ -228,3 +220,100 @@ function atualizarFeed() {
         // finalizarAguardar();
     });
 }
+
+function atividade() {
+    fetch("/avisos/atividade").then(function (resposta) {
+        if (resposta.ok) {
+            if (resposta.status == 204) {
+                user_atividade.innerHTML = `<h1> Nenhum resultado encontrado. </h1>`;
+                throw "Nenhum resultado encontrado!!";
+            }
+
+            resposta.json().then(function (resposta) {
+                console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                var userAtividade = document.querySelector("#user_atividade");
+                userAtividade.innerHTML = "";
+                for (
+                    let i = 0; 
+                    i < resposta.length; 
+                    i++
+                ) {
+
+                    let numeroAleatorio = Math.floor(Math.random() * 11);
+                    let colorNome = listaDeCores[numeroAleatorio];
+
+                    let atividadeRecente = resposta[i]; 
+
+                    let usuario = atividadeRecente.nome
+                    let perfil = atividadeRecente.fotoPerfil
+                    
+                    userAtividade.innerHTML += `
+                    
+                    <div class="users-lin">
+                        <div class="users-perfil">
+                            <div class="icon" style="background-image: url(perfil/${perfil}.png);"></div>
+                            <p style="color: ${colorNome}; font-weight: 600;">${usuario}</p>
+                        </div>
+                        <hr>
+                    </div>
+                    
+                    `;
+                }
+
+                // finalizarAguardar();
+            });
+        } else {
+            throw ('Houve um erro na API!');
+        }
+    }).catch(function (resposta) {
+        console.error(resposta);
+        // finalizarAguardar();
+    });
+}
+
+
+function tema() {
+    fetch("/avisos/tema").then(function (resposta) {
+        if (resposta.ok) {
+            if (resposta.status == 204) {
+                jogo_tema.innerHTML = `<h1> Nenhum resultado encontrado. </h1>`;
+                throw "Nenhum resultado encontrado!!";
+            }
+
+            resposta.json().then(function (resposta) {
+                console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                var jogoTema = document.querySelector("#jogo_tema");
+                jogoTema.innerHTML = "";
+                for (
+                    let i = 0; 
+                    i < resposta.length; 
+                    i++
+                ) {
+
+                    let temasComentados = resposta[i]; 
+
+                    let jogos = temasComentados.nome;
+                    
+                    jogoTema.innerHTML += `
+                    
+                    <div class="users-lin">
+                        <p>${i + 1}. ${jogos}</p>
+                        <hr>
+                    </div>
+                    
+                    `;
+                }
+
+                // finalizarAguardar();
+            });
+        } else {
+            throw ('Houve um erro na API!');
+        }
+    }).catch(function (resposta) {
+        console.error(resposta);
+        // finalizarAguardar();
+    });
+}
+

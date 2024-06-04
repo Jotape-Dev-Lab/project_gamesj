@@ -3,6 +3,14 @@ var router = express.Router();
 
 var avisoController = require("../controllers/avisoController");
 
+router.get("/atividade", function (req, res) {
+    avisoController.atividade(req, res);
+});
+
+router.get("/tema", function (req, res) {
+    avisoController.tema(req, res);
+});
+
 router.get("/listar", function (req, res) {
     avisoController.listar(req, res);
 });
@@ -26,5 +34,6 @@ router.put("/editar/:idAviso", function (req, res) {
 router.delete("/deletar/:idAviso", function (req, res) {
     avisoController.deletar(req, res);
 });
+
 
 module.exports = router;

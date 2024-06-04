@@ -74,6 +74,7 @@ constraint fk_jogos_post foreign key (fkJogo) references jogos(idJogo)
 
 select * from post;
 
+/*
 SELECT 
             p.idPostagem AS idPostagem,
             p.postagem,
@@ -102,4 +103,23 @@ SELECT
     FROM post p
         INNER JOIN usuario u
             ON p.fkUsuario = u.idUsuario
-	WHERE p.postagem LIKE '${texto}';
+	WHERE p.postagem LIKE '${texto}'
+*/
+
+select ifnull(count(fkJogo), 0) as 'Quantidade de post', j.nome 
+from post as p
+right join jogos as j
+on j.idJogo = p.fkJogo
+group by fkJogo, j.nome
+order by 1 desc
+limit 3;
+
+select count(fkUsuario) as 'Mais ativos', 
+u.nome,
+u.fotoPerfil
+from post as p
+right join usuario as u
+on u.idUsuario = p.fkUsuario
+group by p.fkUsuario, u.nome, u.fotoPerfil
+order by 1 desc
+limit 3;
