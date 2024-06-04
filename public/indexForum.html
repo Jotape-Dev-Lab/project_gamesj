@@ -11,7 +11,7 @@
       crossorigin="anonymous"
     ></script>
   </head>
-  <body>
+  <body onload="atualizarFeed()">
     <header>
       <div class="container">
         <nav class="nav-header">
@@ -58,144 +58,40 @@
               <h1>Participe!</h1>
 
               <div class="comentarios">
-                <div class="icon">X</div>
+                <div class="icon-user" id="icon_user"></div>
 
+                <form class="form-forum" id="form_postagem" method="post" onsubmit="return publicar()">
                 <div class="forum-publicacao">
-                  <select name="select_tema" id="select_tema">
+                  <select name="select_tema" id="select_jogo">
                     <option selected disabled value="#">
                       Selecione o tema
                     </option>
-                    <option value="mine">Minecraft</option>
-                    <option value="rock">Rocket League</option>
-                    <option value="braw">Brawlhalla</option>
-                    <option value="vava">Valorant</option>
-                    <option value="poke">Pokémon</option>
+                    <option value="1">Minecraft</option>
+                    <option value="2">Rocket League</option>
+                    <option value="3">Brawlhalla</option>
+                    <option value="4">Valorant</option>
+                    <option value="5">Pokémon</option>
                   </select>
 
-                  <textarea maxlength="250" type="text" placeholder="Digite seu comentário aqui"></textarea>
+                  <textarea maxlength="250" type="text" placeholder="Digite seu comentário aqui" id="text_postagem"></textarea>
 
                   <div class="btn-publicar">
-                    <div class="avaliacao">
+                    <div class="avaliacao" id="avaliacao_star">
                       <i class="fa-regular fa-star star-empty" data-index="1"></i>
                       <i class="fa-regular fa-star star-empty" data-index="2"></i>
                       <i class="fa-regular fa-star star-empty" data-index="3"></i>
                       <i class="fa-regular fa-star star-empty" data-index="4"></i>
                       <i class="fa-regular fa-star star-empty" data-index="5"></i>
                     </div>
-                    <button>Publicar</button>
+                    <input type="hidden" id="ratingValue" name="ratingValue" value="">
+                    <button type="submit" onclick="publicar()">Publicar</button>
+                  </form>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="forum-enviados">
-              <div class="enviado">
-                <div class="user">
-                  <div class="icon">X</div>
-
-                  <div class="name">João</div>
-                </div>
-
-                <div class="content">
-                  <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Beatae voluptate alias odit, est sint dolor quod neque
-                    architecto, praesentium consequuntur reprehenderit id libero
-                    non eaque similique vero consectetur quae. Ratione.
-                  </p>
-                </div>
-
-                <div class="avaliacao">
-                  <i class="fa-solid fa-star star-yellow"></i>
-                  <i class="fa-solid fa-star star-yellow"></i>
-                  <i class="fa-solid fa-star star-yellow"></i>
-                  <i class="fa-regular fa-star star-empty"></i>
-                  <i class="fa-regular fa-star star-empty"></i>
-                </div>
-
-                <hr />
-              </div>
-
-              <div class="enviado">
-                <div class="user">
-                  <div class="icon">X</div>
-
-                  <div class="name">Marcos</div>
-                </div>
-
-                <div class="content">
-                  <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Beatae voluptate alias odit, est sint dolor quod neque
-                    architecto, praesentium consequuntur reprehenderit id libero
-                    non eaque similique vero consectetur quae. Ratione.
-                  </p>
-                </div>
-
-                <div class="avaliacao">
-                  <i class="fa-solid fa-star star-yellow"></i>
-                  <i class="fa-solid fa-star star-yellow"></i>
-                  <i class="fa-regular fa-star star-empty"></i>
-                  <i class="fa-regular fa-star star-empty"></i>
-                  <i class="fa-regular fa-star star-empty"></i>
-                </div>
-
-                <hr />
-              </div>
-
-              <div class="enviado">
-                <div class="user">
-                  <div class="icon">X</div>
-
-                  <div class="name">Marcos</div>
-                </div>
-
-                <div class="content">
-                  <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Beatae voluptate alias odit, est sint dolor quod neque
-                    architecto, praesentium consequuntur reprehenderit id libero
-                    non eaque similique vero consectetur quae. Ratione.
-                  </p>
-                </div>
-
-                <div class="avaliacao">
-                  <i class="fa-solid fa-star star-yellow"></i>
-                  <i class="fa-solid fa-star star-yellow"></i>
-                  <i class="fa-regular fa-star star-empty"></i>
-                  <i class="fa-regular fa-star star-empty"></i>
-                  <i class="fa-regular fa-star star-empty"></i>
-                </div>
-
-                <hr />
-              </div>
-
-              <div class="enviado">
-                <div class="user">
-                  <div class="icon">X</div>
-
-                  <div class="name">Marcos</div>
-                </div>
-
-                <div class="content">
-                  <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Beatae voluptate alias odit, est sint dolor quod neque
-                    architecto, praesentium consequuntur reprehenderit id libero
-                    non eaque similique vero consectetur quae. Ratione.
-                  </p>
-                </div>
-
-                <div class="avaliacao">
-                  <i class="fa-solid fa-star star-yellow"></i>
-                  <i class="fa-solid fa-star star-yellow"></i>
-                  <i class="fa-regular fa-star star-empty"></i>
-                  <i class="fa-regular fa-star star-empty"></i>
-                  <i class="fa-regular fa-star star-empty"></i>
-                </div>
-
-                <hr />
-              </div>
+            <div class="forum-enviados" id="div_comentarios">
             </div>
           </div>
         </div>

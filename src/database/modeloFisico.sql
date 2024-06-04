@@ -47,14 +47,59 @@ constraint ft_perf_user foreign key (fotoPerfil) references foto(idFoto)
 );
 
 select * from usuario;
-UPDATE usuario SET fotoPerfil = 13 WHERE idUsuario = 1;
+
+create table jogos (
+idJogo int,
+nome varchar(45),
+primary key (idJogo)
+);
+
+insert into jogos values 
+(1, 'Minecraft'),
+(2, 'Rocket League'),
+(3, 'Brawlhalla'),
+(4, 'Valorant'),
+(5, 'Pokémon');
 
 create table post (
 idPostagem int auto_increment,
 postagem varchar(250),
-jogo varchar(45),
+fkJogo int,
 avaliacao int,
 fkUsuario int,
 primary key (idPostagem),
-constraint fk_user_post foreign key (fkUsuario) references usuario(idUsuario)
+constraint fk_user_post foreign key (fkUsuario) references usuario(idUsuario),
+constraint fk_jogos_post foreign key (fkJogo) references jogos(idJogo)
 ) auto_increment = 1000;
+
+select * from post;
+
+SELECT 
+            p.idPostagem AS idPostagem,
+            p.postagem,
+            p.fkJogo,
+            p.avaliacao,
+            p.fkUsuario,
+            u.idUsuario AS idUsuario,
+            u.nome,
+            u.email,
+            u.senha,
+            u.fotoPerfil
+        FROM post p
+            INNER JOIN usuario u
+                ON p.fkUsuario = u.idUsuario;
+                
+SELECT 
+        p.idPostagem AS idPostagem,
+        p.postagem,
+        p.fkJogo,
+        p.avaliacao,
+        p.fkUsuario,
+        u.idUsuario AS idUsuario,
+        u.nome,
+        u.email,
+        u.senha
+    FROM post p
+        INNER JOIN usuario u
+            ON p.fkUsuario = u.idUsuario
+	WHERE p.postagem LIKE '${texto}';

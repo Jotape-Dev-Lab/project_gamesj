@@ -40,9 +40,9 @@ function listarPorUsuario(req, res) {
 }
 
 function pesquisarDescricao(req, res) {
-    var descricao = req.params.descricao;
+    var postagem = req.params.postagem;
 
-    avisoModel.pesquisarDescricao(descricao)
+    avisoModel.pesquisarDescricao(postagem)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
@@ -61,18 +61,21 @@ function pesquisarDescricao(req, res) {
 }
 
 function publicar(req, res) {
-    var titulo = req.body.titulo;
-    var descricao = req.body.descricao;
+    var postagem = req.body.postagem;
+    var jogo = req.body.jogo;
+    var avaliacao = req.body.avaliacao;
     var idUsuario = req.params.idUsuario;
 
-    if (titulo == undefined) {
+    if (postagem == undefined) {
         res.status(400).send("O título está indefinido!");
-    } else if (descricao == undefined) {
+    } else if (jogo == undefined) {
+        res.status(400).send("A descrição está indefinido!");
+    } else if (avaliacao == undefined) {
         res.status(400).send("A descrição está indefinido!");
     } else if (idUsuario == undefined) {
         res.status(403).send("O id do usuário está indefinido!");
     } else {
-        avisoModel.publicar(titulo, descricao, idUsuario)
+        avisoModel.publicar(postagem, jogo, avaliacao, idUsuario)
             .then(
                 function (resultado) {
                     res.json(resultado);
