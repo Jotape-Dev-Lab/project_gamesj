@@ -72,7 +72,15 @@ constraint fk_user_post foreign key (fkUsuario) references usuario(idUsuario),
 constraint fk_jogos_post foreign key (fkJogo) references jogos(idJogo)
 ) auto_increment = 1000;
 
-select * from post;
+select ifnull(count(p.fkJogo), 0), j.nome
+from post as p
+right join jogos as j
+on j.idJogo = p.fkJogo
+where p.fkUsuario = 9
+group by fkJogo, j.nome
+order by 1;
+
+select * from jogos;
 
 /*
 SELECT 
@@ -106,6 +114,8 @@ SELECT
 	WHERE p.postagem LIKE '${texto}'
 */
 
+select * from post;
+
 select ifnull(count(fkJogo), 0) as 'Quantidade de post', j.nome 
 from post as p
 right join jogos as j
@@ -123,3 +133,37 @@ on u.idUsuario = p.fkUsuario
 group by p.fkUsuario, u.nome, u.fotoPerfil
 order by 1 desc
 limit 3;
+
+-- ---------------------------------------------------------------------------------------------------------------------------------------------------
+
+-- KPI
+
+select count(avaliacao)
+from post
+where avaliacao <= 3 and fkUsuario = 9;
+
+select count(avaliacao)
+from post
+where avaliacao > 3 and fkUsuario = 9;
+
+select count(postagem)
+from post
+where fkUsuario = 9;
+
+-- ----------------------------------------------------------------------------------------------------------------------------------------------------
+
+-- GRAFICO PIZZA
+
+select 
+ifnull(count(p.fkJogo), 0) as qtdPost, 
+ifnull(j.nome, 0) as Jogo
+from jogos as j
+left join post as p
+on p.fkJogo = j.idJogo and p.fkUsuario = 9
+group by fkJogo, j.nome
+order by qtdPost desc;
+
+-- -----------------------------------------------------------------------------------------------------------------------------------------------------
+
+-- GRAFICO BARRA
+

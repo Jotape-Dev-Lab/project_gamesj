@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styleEditarPerfil.css">
     <title>Meu Perfil</title>
     <script type="text/javascript" src="script/scriptUser.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
 
     <section class="editar-perfil">
@@ -25,9 +28,15 @@
             <div class="lista">
 
                 <ul>
-                    <a href="index.html"><li>Página Inicial</li></a>
-                    <a href="indexForum.html"><li>Fórum</li></a>
-                    <a href="index.html" onclick="limparSessao()"><li>Sair</li></a>
+                    <a href="index.html">
+                        <li>Página Inicial</li>
+                    </a>
+                    <a href="indexForum.html">
+                        <li>Fórum</li>
+                    </a>
+                    <a href="index.html" onclick="limparSessao()">
+                        <li>Sair</li>
+                    </a>
                 </ul>
 
             </div>
@@ -74,21 +83,139 @@
 
                 </div>
 
-                <div class="info-grafico"></div>
+            </div>
+
+            <div class="info-grafico">
+
+                <div class="kpis">
+
+                    <div class="kpi">
+       
+                        <h1>17</h1>
+                        <h2>Quantidade de Avaliações Positivas</h2>
+             
+                    </div>
+
+                    <div class="kpi">
+       
+                        <h1>23</h1>
+                        <h2>Quantidade de Avaliações Negativas</h2>
+             
+                    </div>
+
+                    <div class="kpi">
+
+                        <h1>30</h1>
+                        <h2>Quantidade de Comentários</h2>
+
+                    </div>
+
+                </div>
 
             </div>
 
-            <div class="graficos">
+            <div class="dashboard">
 
-                <div class="grafico-1"></div>
+                <div class="title-graficos">
 
-                <div class="grafico-2"></div>
+                    <h1>Avaliações </h1>
 
+                    <h1>Comentários</h1>
+
+                </div>
+
+                <div class="graficos">
+                    
+                    <div class="grafico-1">
+                        <div class="fundoGrafico">
+                            <canvas id="graficoBarra"></canvas>
+                        </div>
+                    </div>
+    
+                    <div class="grafico-2">
+                        <div class="fundoGrafico">
+                            <canvas id="graficoDoughnut"></canvas>
+                        </div>
+                    </div>
+    
+                </div>
             </div>
-            
+
+
         </section>
 
     </section>
-    
+
 </body>
+
 </html>
+
+<script>
+    const graficoDeBarra = document.getElementById('graficoBarra');
+
+    new Chart(graficoDeBarra, {
+        type: 'bar',
+        data: {
+            labels: ['1 Estrela', '2 Estrela', '3 Estrela', '4 Estrela', '5 Estrela',],
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    const image = new Image();
+    image.src = './icon/rosaClaro.png';
+
+    const plugin = {
+        id: 'customCanvasBackgroundImage',
+        beforeDraw: (chart) => {
+            if (image.complete) {
+                const ctx = chart.ctx;
+                const { top, left, width, height } = chart.chartArea;
+                const imageWidth = 80;
+                const imageHeight = 80;
+                const x = left + width / 2 - imageWidth / 2;
+                const y = top + height / 2 - imageHeight / 2;
+                ctx.drawImage(image, x, y, imageWidth, imageHeight);
+            } else {
+                image.onload = () => chart.draw();
+            }
+        }
+    };
+
+    const graficoDePizza = document.getElementById('graficoDoughnut').getContext('2d');
+
+    new Chart(graficoDePizza, {
+        type: 'doughnut',
+        plugins: [plugin],
+        data: {
+            labels: ['Brawlhalla', 'Minecraft', 'Pokémon', 'Rocket League', 'Valorant',],
+            datasets: [{
+                label: 'Quantidade de Postagem',
+                data: [12, 19, 3, 5, 2],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                x: {
+                    display: false // Remove as linhas de grade do eixo X
+                },
+                y: {
+                    display: false // Remove as linhas de grade do eixo Y
+                }
+            }
+        }
+    });
+
+
+</script>
