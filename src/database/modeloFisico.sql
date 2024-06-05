@@ -138,17 +138,19 @@ limit 3;
 
 -- KPI
 
-select count(avaliacao)
-from post
-where avaliacao <= 3 and fkUsuario = 9;
-
-select count(avaliacao)
-from post
-where avaliacao > 3 and fkUsuario = 9;
-
-select count(postagem)
-from post
-where fkUsuario = 9;
+select
+    (select count(avaliacao)
+     from post
+     where avaliacao < 3 and fkUsuario = 1) as negativo,
+    (select count(avaliacao)
+     from post
+     where avaliacao = 3 and fkUsuario = 1) as neutro,
+    (select count(avaliacao)
+     from post
+     where avaliacao > 3 and fkUsuario = 1) as positivo,
+    (select count(postagem) as qtdPost
+     from post
+     where fkUsuario = 1);
 
 -- ----------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -156,14 +158,22 @@ where fkUsuario = 9;
 
 select 
 ifnull(count(p.fkJogo), 0) as qtdPost, 
-ifnull(j.nome, 0) as Jogo
+j.nome as Jogo
 from jogos as j
 left join post as p
-on p.fkJogo = j.idJogo and p.fkUsuario = 9
+on p.fkJogo = j.idJogo and p.fkUsuario = 1
 group by fkJogo, j.nome
 order by qtdPost desc;
 
 -- -----------------------------------------------------------------------------------------------------------------------------------------------------
 
 -- GRAFICO BARRA
+
+select
+    (select count(avaliacao) from post where avaliacao = 1 and fkUsuario = 1) as estrela1,
+    (select count(avaliacao) from post where avaliacao = 2 and fkUsuario = 1) as estrela2,
+    (select count(avaliacao) from post where avaliacao = 3 and fkUsuario = 1) as estrela3,
+    (select count(avaliacao) from post where avaliacao = 4 and fkUsuario = 1) as estrela4,
+    (select count(avaliacao) from post where avaliacao = 5 and fkUsuario = 1) as estrela5;
+
 

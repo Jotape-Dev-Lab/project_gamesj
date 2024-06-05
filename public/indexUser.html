@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styleEditarPerfil.css">
     <title>Meu Perfil</title>
-    <script type="text/javascript" src="script/scriptUser.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://kit.fontawesome.com/bdbe817282.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body onload="buscarDadosKpi(), buscarDadosGraficoBarra(), buscarDadosGraficoDoug()">
 
     <section class="editar-perfil">
 
@@ -90,22 +90,83 @@
                 <div class="kpis">
 
                     <div class="kpi">
+
+                        <div class="info-div">
+                            <h1 id="kpiPositivo"></h1>
+                            <i class="fa-solid fa-circle-info ihover">
+                                <span id="info" class="modal-info">
+                                    <div class="align-star">
+                                        <p>
+                                            <i class="fa-solid fa-star star-yellow"></i>
+                                            <i class="fa-solid fa-star star-yellow"></i>   
+                                            <i class="fa-solid fa-star star-yellow"></i>   
+                                            <i class="fa-solid fa-star star-yellow"></i>                 
+                                        </p>
+                                        <p>
+                                            <i class="fa-solid fa-star star-yellow"></i>
+                                            <i class="fa-solid fa-star star-yellow"></i>
+                                            <i class="fa-solid fa-star star-yellow"></i>   
+                                            <i class="fa-solid fa-star star-yellow"></i>   
+                                            <i class="fa-solid fa-star star-yellow"></i>                                        
+                                        </p>
+                                    </div>
+                                </span>
+                            </i>
+                        </div>
        
-                        <h1>17</h1>
                         <h2>Quantidade de Avaliações Positivas</h2>
              
                     </div>
 
                     <div class="kpi">
+
+                        <div class="info-div">
+                            <h1 id="kpiNeutro"></h1>
+                            <i class="fa-solid fa-circle-info ihover">
+                                <span id="info" class="modal-info">
+                                    <p>
+                                        <i class="fa-solid fa-star star-yellow"></i>
+                                        <i class="fa-solid fa-star star-yellow"></i>
+                                        <i class="fa-solid fa-star star-yellow"></i>
+                                    </p>
+                                </span>
+                            </i>
+
+                        </div>
+                        <h2>Quantidade de Avaliações Neutras</h2>
+
+                    </div>
+
+                    <div class="kpi">
        
-                        <h1>23</h1>
+                        <div class="info-div">
+                            <h1 id="kpiNegativo"></h1>
+                            
+                            <i class="fa-solid fa-circle-info ihover">
+                                <span class="modal-info">
+                                    <div class="align-star">
+                                        <p>
+                                            <i class="fa-solid fa-star star-yellow"></i>              
+                                        </p>
+                                        <p>
+                                            <i class="fa-solid fa-star star-yellow"></i>
+                                            <i class="fa-solid fa-star star-yellow"></i>                                      
+                                        </p>
+                                    </div>
+                                </span>
+                            </i>
+                            
+                        </div>
+
                         <h2>Quantidade de Avaliações Negativas</h2>
              
                     </div>
 
                     <div class="kpi">
 
-                        <h1>30</h1>
+                        <div class="info-div">
+                            <h1 id="kpiQuantidade"></h1>
+                        </div>
                         <h2>Quantidade de Comentários</h2>
 
                     </div>
@@ -118,9 +179,9 @@
 
                 <div class="title-graficos">
 
-                    <h1>Avaliações </h1>
+                    <h1>Quantidade de Estrelas</h1>
 
-                    <h1>Comentários</h1>
+                    <h1>Quantidade de Comentários por Jogo</h1>
 
                 </div>
 
@@ -146,76 +207,8 @@
 
     </section>
 
+    <script type="text/javascript" src="script/scriptUser.js"></script>
+
 </body>
 
 </html>
-
-<script>
-    const graficoDeBarra = document.getElementById('graficoBarra');
-
-    new Chart(graficoDeBarra, {
-        type: 'bar',
-        data: {
-            labels: ['1 Estrela', '2 Estrela', '3 Estrela', '4 Estrela', '5 Estrela',],
-            datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-
-    const image = new Image();
-    image.src = './icon/rosaClaro.png';
-
-    const plugin = {
-        id: 'customCanvasBackgroundImage',
-        beforeDraw: (chart) => {
-            if (image.complete) {
-                const ctx = chart.ctx;
-                const { top, left, width, height } = chart.chartArea;
-                const imageWidth = 80;
-                const imageHeight = 80;
-                const x = left + width / 2 - imageWidth / 2;
-                const y = top + height / 2 - imageHeight / 2;
-                ctx.drawImage(image, x, y, imageWidth, imageHeight);
-            } else {
-                image.onload = () => chart.draw();
-            }
-        }
-    };
-
-    const graficoDePizza = document.getElementById('graficoDoughnut').getContext('2d');
-
-    new Chart(graficoDePizza, {
-        type: 'doughnut',
-        plugins: [plugin],
-        data: {
-            labels: ['Brawlhalla', 'Minecraft', 'Pokémon', 'Rocket League', 'Valorant',],
-            datasets: [{
-                label: 'Quantidade de Postagem',
-                data: [12, 19, 3, 5, 2],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                x: {
-                    display: false // Remove as linhas de grade do eixo X
-                },
-                y: {
-                    display: false // Remove as linhas de grade do eixo Y
-                }
-            }
-        }
-    });
-
-
-</script>
