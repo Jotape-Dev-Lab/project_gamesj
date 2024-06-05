@@ -247,14 +247,21 @@ function atividade() {
 
                     let usuario = atividadeRecente.nome
                     let perfil = atividadeRecente.fotoPerfil
+                    let qtdComentarios = atividadeRecente.maisAtivos
                     
                     userAtividade.innerHTML += `
                     
                     <div class="users-lin">
                         <div class="users-perfil">
-                            <div class="icon" style="background-image: url(perfil/${perfil}.png);"></div>
-                            <p style="color: ${colorNome}; font-weight: 600;">${usuario}</p>
-                        </div>
+                            <div class="user-perfil-comment">
+                                <div class="user-perfil">
+                                    <div class="icon" style="background-image: url(perfil/${perfil}.png);"></div>
+                                    <p style="color: ${colorNome}; font-weight: 600;">${usuario}</p>
+                                </div>
+                                <div class="user-comment">
+                                    <h1> Comentários: ${qtdComentarios}</h1>
+                                </div>
+                            </div>
                         <hr>
                     </div>
                     

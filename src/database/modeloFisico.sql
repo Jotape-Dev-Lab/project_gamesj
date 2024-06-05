@@ -82,37 +82,6 @@ order by 1;
 
 select * from jogos;
 
-/*
-SELECT 
-            p.idPostagem AS idPostagem,
-            p.postagem,
-            p.fkJogo,
-            p.avaliacao,
-            p.fkUsuario,
-            u.idUsuario AS idUsuario,
-            u.nome,
-            u.email,
-            u.senha,
-            u.fotoPerfil
-        FROM post p
-            INNER JOIN usuario u
-                ON p.fkUsuario = u.idUsuario;
-                
-SELECT 
-        p.idPostagem AS idPostagem,
-        p.postagem,
-        p.fkJogo,
-        p.avaliacao,
-        p.fkUsuario,
-        u.idUsuario AS idUsuario,
-        u.nome,
-        u.email,
-        u.senha
-    FROM post p
-        INNER JOIN usuario u
-            ON p.fkUsuario = u.idUsuario
-	WHERE p.postagem LIKE '${texto}'
-*/
 
 select * from post;
 
@@ -124,7 +93,7 @@ group by fkJogo, j.nome
 order by 1 desc
 limit 3;
 
-select count(fkUsuario) as 'Mais ativos', 
+select count(fkUsuario) as maisAtivos, 
 u.nome,
 u.fotoPerfil
 from post as p

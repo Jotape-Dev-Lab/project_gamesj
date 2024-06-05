@@ -30,7 +30,7 @@ function atividade() {
     "ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function atividade()"
   );
   var instrucaoSql = `
-    select count(fkUsuario) as 'Mais ativos', 
+    select count(fkUsuario) as maisAtivos, 
     u.nome,
     u.fotoPerfil
     from post as p

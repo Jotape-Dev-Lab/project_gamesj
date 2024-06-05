@@ -209,7 +209,8 @@ li:hover {
 }
 
 .forum-info {
-    height: 100%;
+    position: static;
+    height: 600px;
     width: 100%;
     background-color: var(--branco);
     box-shadow: 0px 0px 20px -8px rgba(35, 35, 57, 1);
@@ -268,9 +269,36 @@ li:hover {
 
 .users-perfil {
     display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    align-items: center;
+    width: 100%;
+    
+}
+
+.user-perfil-comment {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.user-perfil {
+    display: flex;
     flex-direction: row;
     gap: 0.4rem;
     align-items: center;
+}
+
+.user-comment {
+    display: flex;
+
+}
+
+.user-comment h1 {
+    font-size: 14px;
+    color: var(--cinza);
 }
 
 .align-jogo {
@@ -286,6 +314,7 @@ li:hover {
 }
 
 .forum-publicar {
+    position: relative;
     display: flex;
     flex-direction: column;
     height: 40%;
@@ -400,17 +429,16 @@ li:hover {
 }
 
 .forum-enviados {
+    position: relative;
     display: flex;
     flex-direction: column;
-    height: 490px;
+    height: 100%;
     width: 100%;
     border-radius: 12px;
     background-color: var(--branco);
     box-shadow: 0px 0px 20px -8px rgba(35, 35, 57, 1);
     padding: 1rem;
     gap: 1rem;
-    overflow: hidden;
-    overflow-y: scroll;
 }
 
 .forum-enviados::-webkit-scrollbar {

@@ -198,9 +198,7 @@ function buscarDadosGraficoDoug() {
             },
           };
 
-          const graficoDePizza = document
-            .getElementById("graficoDoughnut")
-            .getContext("2d");
+          const graficoDePizza = document.getElementById("graficoDoughnut").getContext("2d");
 
           new Chart(graficoDePizza, {
             type: "doughnut",

@@ -382,3 +382,44 @@ li:hover {
     border-radius: 12px;
     box-shadow: 0px 0px 12px 1px var(--roxoClaroShadow);
 }
+
+.footer{
+    display: flex;
+    height: 30vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--roxo);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.footer-content h1 {
+    color: var(--branco);
+    text-shadow: 2px 2px 0px var(--rosaNeon);
+}
+
+.contato {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.contato-img {
+    width: 70px;
+    height: 70px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.contato-img:hover {
+    transform: scale(1.08);
+}
