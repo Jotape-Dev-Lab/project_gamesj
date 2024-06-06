@@ -1,7 +1,7 @@
-var avisoModel = require("../models/avisoModel");
+var forumModel = require("../models/forumModel");
 
 function listar(req, res) {
-    avisoModel.listar().then(function (resultado) {
+    forumModel.listar().then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -15,7 +15,7 @@ function listar(req, res) {
 }
 
 function atividade(req, res) {
-    avisoModel.atividade().then(function (resultado) {
+    forumModel.atividade().then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -29,7 +29,7 @@ function atividade(req, res) {
 }
 
 function tema(req, res) {
-    avisoModel.tema().then(function (resultado) {
+    forumModel.tema().then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -45,7 +45,7 @@ function tema(req, res) {
 function listarPorUsuario(req, res) {
     var idUsuario = req.params.idUsuario;
 
-    avisoModel.listarPorUsuario(idUsuario)
+    forumModel.listarPorUsuario(idUsuario)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
@@ -70,7 +70,7 @@ function listarPorUsuario(req, res) {
 function pesquisarDescricao(req, res) {
     var postagem = req.params.postagem;
 
-    avisoModel.pesquisarDescricao(postagem)
+    forumModel.pesquisarDescricao(postagem)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
@@ -103,7 +103,7 @@ function publicar(req, res) {
     } else if (idUsuario == undefined) {
         res.status(403).send("O id do usuário está indefinido!");
     } else {
-        avisoModel.publicar(postagem, jogo, avaliacao, idUsuario)
+        forumModel.publicar(postagem, jogo, avaliacao, idUsuario)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -119,44 +119,6 @@ function publicar(req, res) {
     }
 }
 
-function editar(req, res) {
-    var novaDescricao = req.body.descricao;
-    var idAviso = req.params.idAviso;
-
-    avisoModel.editar(novaDescricao, idAviso)
-        .then(
-            function (resultado) {
-                res.json(resultado);
-            }
-        )
-        .catch(
-            function (erro) {
-                console.log(erro);
-                console.log("Houve um erro ao realizar o post: ", erro.sqlMessage);
-                res.status(500).json(erro.sqlMessage);
-            }
-        );
-
-}
-
-function deletar(req, res) {
-    var idAviso = req.params.idAviso;
-
-    avisoModel.deletar(idAviso)
-        .then(
-            function (resultado) {
-                res.json(resultado);
-            }
-        )
-        .catch(
-            function (erro) {
-                console.log(erro);
-                console.log("Houve um erro ao deletar o post: ", erro.sqlMessage);
-                res.status(500).json(erro.sqlMessage);
-            }
-        );
-}
-
 module.exports = {
     tema,
     atividade,
@@ -164,6 +126,4 @@ module.exports = {
     listarPorUsuario,
     pesquisarDescricao,
     publicar,
-    editar,
-    deletar
 }

@@ -1,4 +1,4 @@
-drop database if exists gamesj;
+-- drop database if exists gamesj;
 
 create database if not exists gamesj;
 use gamesj;
@@ -46,8 +46,6 @@ primary key (idUsuario),
 constraint ft_perf_user foreign key (fotoPerfil) references foto(idFoto)
 );
 
-select * from usuario;
-
 create table jogos (
 idJogo int,
 nome varchar(45),
@@ -72,20 +70,13 @@ constraint fk_user_post foreign key (fkUsuario) references usuario(idUsuario),
 constraint fk_jogos_post foreign key (fkJogo) references jogos(idJogo)
 ) auto_increment = 1000;
 
-select ifnull(count(p.fkJogo), 0), j.nome
-from post as p
-right join jogos as j
-on j.idJogo = p.fkJogo
-where p.fkUsuario = 9
-group by fkJogo, j.nome
-order by 1;
+-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-select * from jogos;
+-- FORUM
 
+-- Quantidade de post realizados por jogo
 
-select * from post;
-
-select ifnull(count(fkJogo), 0) as 'Quantidade de post', j.nome 
+select ifnull(count(fkJogo), 0) as 'Jogos mais comentados', j.nome 
 from post as p
 right join jogos as j
 on j.idJogo = p.fkJogo
@@ -93,7 +84,9 @@ group by fkJogo, j.nome
 order by 1 desc
 limit 3;
 
-select count(fkUsuario) as maisAtivos, 
+-- Quantidade de usuários que mais comentaram
+
+select count(fkUsuario) as 'Mais ativos', 
 u.nome,
 u.fotoPerfil
 from post as p
@@ -103,7 +96,7 @@ group by p.fkUsuario, u.nome, u.fotoPerfil
 order by 1 desc
 limit 3;
 
--- ---------------------------------------------------------------------------------------------------------------------------------------------------
+-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 -- KPI
 
@@ -117,11 +110,11 @@ select
     (select count(avaliacao)
      from post
      where avaliacao > 3 and fkUsuario = 1) as positivo,
-    (select count(postagem) as qtdPost
+    (select count(postagem)
      from post
-     where fkUsuario = 1);
+     where fkUsuario = 1) as qtdPost;
 
--- ----------------------------------------------------------------------------------------------------------------------------------------------------
+-- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 -- GRAFICO PIZZA
 
@@ -134,7 +127,39 @@ on p.fkJogo = j.idJogo and p.fkUsuario = 1
 group by fkJogo, j.nome
 order by qtdPost desc;
 
--- -----------------------------------------------------------------------------------------------------------------------------------------------------
+select
+	(select ifnull(count(p.fkJogo), 0)
+	from jogos as j
+	left join post as p
+	on p.fkJogo = j.idJogo and p.fkUsuario = 1
+    where j.nome = 'Brawlhalla'
+	group by fkJogo, j.nome) as braw,
+    (select ifnull(count(p.fkJogo), 0)
+	from jogos as j
+	left join post as p
+	on p.fkJogo = j.idJogo and p.fkUsuario = 1
+    where j.nome = 'Minecraft'
+	group by fkJogo, j.nome) as mine,
+    (select ifnull(count(p.fkJogo), 0)
+	from jogos as j
+	left join post as p
+	on p.fkJogo = j.idJogo and p.fkUsuario = 1
+    where j.nome = 'Rocket League'
+	group by fkJogo, j.nome) as rock,
+    (select ifnull(count(p.fkJogo), 0)
+	from jogos as j
+	left join post as p
+	on p.fkJogo = j.idJogo and p.fkUsuario = 1
+    where j.nome = 'Valorant'
+	group by fkJogo, j.nome) as vava,
+    (select ifnull(count(p.fkJogo), 0)
+	from jogos as j
+	left join post as p
+	on p.fkJogo = j.idJogo and p.fkUsuario = 1
+    where j.nome = 'Pokémon'
+	group by fkJogo, j.nome) as poke;
+
+-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 -- GRAFICO BARRA
 
@@ -145,4 +170,8 @@ select
     (select count(avaliacao) from post where avaliacao = 4 and fkUsuario = 1) as estrela4,
     (select count(avaliacao) from post where avaliacao = 5 and fkUsuario = 1) as estrela5;
 
+-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+select * from jogos;
+select * from post;
+select * from usuario;

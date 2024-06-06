@@ -50,6 +50,7 @@ section {
     background-image: url("../img/imgLogin.png");
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
     width: 50%;
 }
 

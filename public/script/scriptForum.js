@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
             avaliacao: form_postagem.ratingValue.value,
         }
 
-        fetch(`/avisos/publicar/${idUsuario}`, {
+        fetch(`/forum/publicar/${idUsuario}`, {
             method: "post",
             headers: {
                 "Content-Type": "application/json"
@@ -88,41 +88,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     }
 
-
-    // function editar(idAviso) {
-    //     sessionStorage.ID_POSTAGEM_EDITANDO = idAviso;
-    //     console.log("cliquei em editar - " + idAviso);
-    //     window.alert("Você será redirecionado à página de edição do aviso de id número: " + idAviso);
-    //     window.location = "/dashboard/edicao-aviso.html"
-
-    // }
-
-    // function deletar(idAviso) {
-    //     console.log("Criar função de apagar post escolhido - ID" + idAviso);
-    //     fetch(`/avisos/deletar/${idAviso}`, {
-    //         method: "DELETE",
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         }
-    //     }).then(function (resposta) {
-
-    //         if (resposta.ok) {
-    //             window.alert("Post deletado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
-    //             window.location = "/dashboard/mural.html"
-    //         } else if (resposta.status == 404) {
-    //             window.alert("Deu 404!");
-    //         } else {
-    //             throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
-    //         }
-    //     }).catch(function (resposta) {
-    //         console.log(`#ERRO: ${resposta}`);
-    //     });
-    // }
-
 let listaDeCores = ['#6E36FF', '#6FBD3B', '#FFA305', '#CC3412', '#FFDF03', '#E402FF', '#3739FF', '#2DFFB2', '#B2FFBC', '#C49DFF', '#3F8CFF'];
 
 function atualizarFeed() {
-    fetch("/avisos/listar").then(function (resposta) {
+    fetch("/forum/listar").then(function (resposta) {
         if (resposta.ok) {
             if (resposta.status == 204) {
                 div_comentarios.innerHTML = `<h1> Nenhum resultado encontrado. </h1>`;
@@ -222,7 +191,7 @@ function atualizarFeed() {
 }
 
 function atividade() {
-    fetch("/avisos/atividade").then(function (resposta) {
+    fetch("/forum/atividade").then(function (resposta) {
         if (resposta.ok) {
             if (resposta.status == 204) {
                 user_atividade.innerHTML = `<h1> Nenhum resultado encontrado. </h1>`;
@@ -281,7 +250,7 @@ function atividade() {
 
 
 function tema() {
-    fetch("/avisos/tema").then(function (resposta) {
+    fetch("/forum/tema").then(function (resposta) {
         if (resposta.ok) {
             if (resposta.status == 204) {
                 jogo_tema.innerHTML = `<h1> Nenhum resultado encontrado. </h1>`;
